@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Οι γάτες τ' Αϊ-Νικόλα · Σεφέρης × Safe Paws Cyprus</title>
+<meta name="description" content="Το ποίημα του Γιώργου Σεφέρη «Οι γάτες τ' Αϊ-Νικόλα» (1969) σε 14 διαδραστικές κάρτες με εικονογράφηση σε στιλ Frank Miller. Δίγλωσση παρουσίαση (ΕΛ/EN). Safe Paws Cyprus.">
+<meta property="og:title" content="Οι γάτες τ' Αϊ-Νικόλα · 14 κάρτες">
+<meta property="og:description" content="9.500 χρόνια γάτες στην Κύπρο. Το ποίημα του Σεφέρη σε 14 κάρτες · Frank Miller style.">
+<meta property="og:image" content="images/image_01.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0c0e;
+    --bg-card:#14141a;
+    --fg:#e8e3d6;
+    --muted:#9a9388;
+    --accent:#c89c5a;
+    --accent-2:#b86040;
+    --border:rgba(232,227,214,.18);
+    --max-w: 1100px;
+    --card-w: 720px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Cormorant Garamond', 'GFS Didot', Georgia, serif;
+    background:var(--bg);
+    color:var(--fg);
+    line-height:1.55;
+    overflow-x:hidden;
+    min-height:100vh;
+  }
+  ::selection{background:var(--accent);color:#0c0c0e}
+
+  .hero{
+    min-height:90vh;
+    display:flex;flex-direction:column;justify-content:center;align-items:center;
+    text-align:center;
+    padding:60px 24px 40px;
+    background:radial-gradient(ellipse at center, #1a1518 0%, #0c0c0e 70%);
+    position:relative;
+    border-bottom:1px solid var(--border);
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:url(images/image_11.jpg) center/cover;
+    opacity:.10;
+    filter:contrast(1.2) blur(2px);
+    pointer-events:none;
+  }
+  .hero > *{position:relative;z-index:1}
+  .hero .author{
+    font-family:'Inter',sans-serif;
+    font-size:.78rem;letter-spacing:.4em;
+    color:var(--muted);
+    text-transform:uppercase;
+    margin-bottom:1.5rem;
+  }
+  .hero h1{
+    font-family:'GFS Didot', 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 7vw, 5.5rem);
+    font-weight:400;
+    letter-spacing:.02em;
+    line-height:1.05;
+    color:var(--fg);
+    margin-bottom:.4rem;
+  }
+  .hero h2{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;font-weight:400;
+    font-size: clamp(1.1rem, 2.5vw, 1.7rem);
+    color:var(--accent);
+    margin-bottom:2.2rem;
+  }
+  .hero .meta{
+    font-family:'Inter',sans-serif;
+    font-size:.85rem;letter-spacing:.18em;
+    color:var(--muted);
+    text-transform:uppercase;
+  }
+  .hero .meta strong{color:var(--fg);font-weight:600;letter-spacing:.18em}
+  .scroll-cue{
+    margin-top:3rem;
+    font-family:'Inter',sans-serif;
+    font-size:.7rem;letter-spacing:.3em;
+    color:var(--muted);
+    animation:bob 2.4s ease-in-out infinite;
+  }
+  @keyframes bob{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(8px)}
+  }
+
+  .intro{
+    max-width:var(--max-w);
+    margin:0 auto;
+    padding:80px 24px 40px;
+  }
+  .intro h3{
+    font-family:'GFS Didot', serif;
+    font-size:clamp(1.6rem,3.2vw,2.4rem);
+    font-weight:400;
+    letter-spacing:.02em;
+    margin-bottom:1.4rem;
+    color:var(--accent);
+  }
+  .intro p{
+    font-size:clamp(1.05rem,1.6vw,1.25rem);
+    margin-bottom:1.1rem;
+    color:var(--fg);
+  }
+  .intro .quote{
+    font-style:italic;
+    color:var(--accent);
+    text-align:center;
+    font-size:clamp(1.4rem,2.6vw,1.9rem);
+    padding:1.6rem 0;
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+    margin:2rem 0;
+  }
+
+  .cards-section{padding:40px 0 100px;position:relative;}
+  .cards-section h3{
+    text-align:center;
+    font-family:'GFS Didot', serif;
+    font-size:clamp(1.4rem,2.6vw,1.9rem);
+    font-weight:400;
+    letter-spacing:.04em;
+    color:var(--muted);
+    margin-bottom:2rem;
+  }
+  .stage{max-width:var(--max-w);margin:0 auto;padding:0 16px;position:relative;}
+  .card{
+    display:none;
+    background:var(--card-bg, #1a1418);
+    border:1px solid var(--card-border, rgba(232,227,214,.22));
+    border-radius:14px;
+    padding:36px 32px 28px;
+    transition:background .6s ease, border-color .6s ease;
+    box-shadow:0 12px 50px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.04);
+    animation:fadeIn .5s ease;
+  }
+  .card.active{display:block}
+  @keyframes fadeIn{
+    from{opacity:0;transform:translateY(8px)}
+    to{opacity:1;transform:none}
+  }
+  .card-header{
+    text-align:center;
+    border-bottom:1px solid var(--card-border, rgba(232,227,214,.18));
+    padding-bottom:14px;margin-bottom:22px;
+  }
+  .card-header .author{
+    font-family:'Inter',sans-serif;
+    font-size:.72rem;letter-spacing:.32em;
+    color:var(--muted);text-transform:uppercase;
+    margin-bottom:.45rem;
+  }
+  .card-header .author strong{color:var(--card-accent, var(--accent));font-weight:700;letter-spacing:.32em}
+  .card-header .work{font-style:italic;color:var(--muted);font-size:clamp(.9rem,1.6vw,1.05rem);}
+  .card-header .pub{
+    font-family:'Inter',sans-serif;
+    font-size:.7rem;letter-spacing:.08em;
+    color:var(--muted);opacity:.75;margin-top:.35rem;
+  }
+  .card-label{
+    font-family:'Inter',sans-serif;
+    font-size:.72rem;letter-spacing:.3em;font-weight:700;
+    color:var(--card-accent, var(--accent));
+    text-transform:uppercase;text-align:center;margin-bottom:1rem;
+  }
+  .card-title{
+    font-family:'GFS Didot', serif;
+    font-size:clamp(1.8rem,4.5vw,2.8rem);
+    font-weight:400;text-align:center;
+    color:var(--card-accent, var(--accent));
+    line-height:1.1;margin-bottom:.3rem;
+  }
+  .card-title-en{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:clamp(1.05rem,2.3vw,1.4rem);
+    text-align:center;color:var(--muted);margin-bottom:1.4rem;
+  }
+  .verses{
+    display:grid;grid-template-columns:1fr 1fr;gap:2px;
+    background:var(--card-border, rgba(232,227,214,.12));
+    border-radius:8px;overflow:hidden;margin-bottom:24px;
+    border:1px solid var(--card-border, rgba(232,227,214,.18));
+  }
+  .verse-col{
+    background:rgba(0,0,0,.35);
+    padding:18px 20px;
+    font-size:clamp(1.02rem,1.7vw,1.18rem);
+    line-height:1.6;white-space:pre-line;
+  }
+  .verse-col .lang{
+    display:block;font-family:'Inter',sans-serif;
+    font-size:.65rem;letter-spacing:.32em;
+    color:var(--muted);text-transform:uppercase;
+    margin-bottom:.6rem;font-weight:700;
+  }
+  .verse-el{color:var(--fg)}
+  .verse-en{color:#ddd5c5;font-style:italic}
+  .card-image{
+    width:100%;border-radius:8px;
+    border:1px solid var(--card-border, rgba(232,227,214,.18));
+    cursor:zoom-in;transition:transform .35s ease;display:block;
+  }
+  .card-image:hover{transform:scale(1.01)}
+  .card-footer{
+    display:flex;justify-content:space-between;align-items:center;
+    margin-top:18px;padding-top:14px;
+    border-top:1px solid var(--card-border, rgba(232,227,214,.12));
+    font-family:'Inter',sans-serif;
+    font-size:.72rem;letter-spacing:.18em;
+    color:var(--muted);text-transform:uppercase;
+  }
+  .card-footer .credit{color:var(--card-accent, var(--accent));font-weight:700;letter-spacing:.18em;}
+
+  .controls{display:flex;justify-content:center;align-items:center;gap:16px;margin-top:30px;}
+  .btn{
+    background:transparent;color:var(--fg);
+    border:1px solid var(--border);border-radius:50%;
+    width:48px;height:48px;font-size:1.3rem;cursor:pointer;
+    transition:all .2s ease;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Inter',sans-serif;
+  }
+  .btn:hover{background:var(--accent);color:#0c0c0e;border-color:var(--accent)}
+  .btn:disabled{opacity:.3;cursor:not-allowed}
+  .btn:disabled:hover{background:transparent;color:var(--fg);border-color:var(--border)}
+  .progress{
+    font-family:'Inter',sans-serif;
+    font-size:.85rem;letter-spacing:.25em;
+    color:var(--muted);min-width:72px;text-align:center;
+  }
+  .dots{
+    display:flex;justify-content:center;gap:6px;
+    margin-top:18px;flex-wrap:wrap;
+    max-width:480px;margin-left:auto;margin-right:auto;
+  }
+  .dot{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--border);cursor:pointer;border:0;
+    transition:all .2s ease;
+  }
+  .dot.active{background:var(--accent);transform:scale(1.4)}
+  .dot:hover{background:var(--muted)}
+
+  .lightbox{
+    display:none;position:fixed;inset:0;
+    background:rgba(0,0,0,.95);z-index:1000;
+    justify-content:center;align-items:center;
+    padding:20px;cursor:zoom-out;
+  }
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:95%;max-height:95%;border-radius:8px}
+  .lightbox-close{
+    position:absolute;top:20px;right:24px;
+    color:#fff;font-size:2rem;cursor:pointer;background:none;border:none;
+  }
+
+  .outro{
+    max-width:780px;margin:0 auto;padding:60px 24px 40px;
+    text-align:center;border-top:1px solid var(--border);
+  }
+  .outro h3{
+    font-family:'GFS Didot',serif;
+    font-size:clamp(1.6rem,3.2vw,2.2rem);
+    font-weight:400;color:var(--accent);margin-bottom:1.2rem;
+  }
+  .outro p{font-size:clamp(1rem,1.6vw,1.18rem);color:var(--fg);margin-bottom:1rem;}
+  .cta{
+    display:inline-block;margin-top:1.5rem;
+    padding:14px 32px;
+    background:var(--accent);color:#0c0c0e;
+    text-decoration:none;
+    font-family:'Inter',sans-serif;
+    font-weight:700;letter-spacing:.2em;font-size:.85rem;
+    text-transform:uppercase;border-radius:4px;
+    transition:all .2s ease;
+  }
+  .cta:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(200,156,90,.4)}
+
+  footer{
+    text-align:center;padding:40px 20px;
+    font-family:'Inter',sans-serif;
+    font-size:.78rem;letter-spacing:.18em;
+    color:var(--muted);border-top:1px solid var(--border);
+  }
+  footer a{color:var(--accent);text-decoration:none}
+
+  @media (max-width:680px){
+    .verses{grid-template-columns:1fr}
+    .card{padding:24px 18px 20px}
+    .hero{min-height:80vh;padding:40px 20px}
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="author">Γιώργος Σεφέρης · George Seferis</div>
+  <h1>Οι γάτες<br>τ' Αϊ-Νικόλα</h1>
+  <h2>The Cats of Saint Nicholas</h2>
+  <div class="meta">Ημερολόγιο Καταστρώματος, Γ΄ &nbsp;·&nbsp; <strong>1969</strong></div>
+  <div class="scroll-cue">▼ &nbsp;Scroll</div>
+</section>
+
+<section class="intro">
+  <h3>9.500 χρόνια γάτες στην Κύπρο</h3>
+  <p>Στον Σιλλουρόκαμπο, στη νότια Κύπρο, ξεθάφτηκε ο αρχαιότερος τάφος ανθρώπου-με-γάτα στον κόσμο. Πριν από 9.500 χρόνια, ένας Κύπριος θάφτηκε αγκαλιά με το ζωάκι του. Από τότε η γάτα δεν έφυγε ποτέ από αυτό το νησί — ούτε από τη ψυχή του.</p>
+  <p>Η παράδοση λέει πως η Αγία Ελένη, τον 4ο αιώνα, έφερε εκατοντάδες γάτες στην Κύπρο για να σώσει το νησί από τα φίδια. Στο μοναστήρι του Αγίου Νικολάου των Γάτων, οι Αγιοβασιλείτες καλόγεροι έζησαν αιώνες σε μυστική συμβίωση με τις γάτες — τέσσερις καμπάνες την ημέρα όριζαν τον ρυθμό της πιο αλλόκοτης μοναστηριακής τάξης που γνώρισε ποτέ η Ορθοδοξία.</p>
+  <p>Το 1969, μέσα στη σιωπή της δικτατορίας, ο Σεφέρης κατεβαίνει σε αυτό το αρχαίο πηγάδι. Στις λαβωμένες γάτες αναγνωρίζει ολόκληρο τον ελληνισμό του 20ού αιώνα — κάθοδος ποιητική στο συλλογικό μας ασυνείδητο.</p>
+  <p class="quote">«Αιώνες φαρμάκι· γενιές φαρμάκι.»</p>
+  <p>Σε 14 διαδραστικές κάρτες ξαναδιαβάζουμε σκηνή-σκηνή το ποίημα, με εικονογράφηση σε στιλ Frank Miller. Εκεί που η Ορθοδοξία συναντά το επικό comic και η αρχέγονη μνήμη γίνεται εικόνα.</p>
+</section>
+
+<section class="cards-section">
+  <h3>Οι 14 κάρτες · The 14 cards</h3>
+  <div class="stage" id="stage"></div>
+  <div class="controls">
+    <button class="btn" id="prev" aria-label="Προηγούμενη">‹</button>
+    <div class="progress" id="progress">01 / 14</div>
+    <button class="btn" id="next" aria-label="Επόμενη">›</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</section>
+
+<section class="outro">
+  <h3>Safe Paws Cyprus</h3>
+  <p>Συνεχίζουμε αυτή την αρχαία σχέση. Όχι πια σαν εργαλείο επιβίωσης — αλλά σαν κάτι παλαιότερο και βαθύτερο από εμάς.</p>
+  <p>Σαν αναγνώριση.</p>
+  <a href="#" class="cta">Στηρίξτε μας</a>
+</section>
+
+<footer>
+  © Safe Paws Cyprus · Ποίημα: Γ. Σεφέρης (1969) · Μετάφραση: E. Keeley & P. Sherrard, Princeton UP
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lbClose">×</button>
+  <img id="lbImg" alt="">
+</div>
+
+<script>
+const CARDS = [
+  {label:"ΕΠΙΓΡΑΜΜΑ · EPIGRAPH",
+   titleEl:"Ο Θρήνος της Ερινύος", titleEn:"The Fury's Threnody",
+   verseEl:"Τὸν δ' ἂνευ λύρας ὃμως ὑμνωδεῖ\nθρῆνον Ἐρινύος\nαὐτοδίδακτος ἔσωθεν θυμός…\n— ΑΓΑΜΕΜΝΩΝ, στ. 990",
+   verseEn:"But deep inside me sings\nthe Fury's lyreless threnody;\nmy heart, self-taught…\n— Aeschylus, Agamemnon",
+   accent:"#c84858", bg:"#1a0c10"},
+  {label:"ΣΚΗΝΗ · SCENE",
+   titleEl:"Φαίνεται ο Κάβο-Γάτα", titleEn:"That's the Cape of Cats",
+   verseEl:"«Φαίνεται ο Κάβο-Γάτα…»\nμου είπε ο καπετάνιος\nτ' άδειο ακρογιάλι\nανήμερα Χριστούγεννα.",
+   verseEn:"\"That's the Cape of Cats ahead,\"\nthe captain said to me,\npointing through the mist —\nit was Christmas day.",
+   accent:"#d2b88c", bg:"#1c1810"},
+  {label:"ΣΚΗΝΗ · SCENE",
+   titleEl:"Η Πέτρα του Ρωμιού", titleEn:"The Rock of the Greek",
+   verseEl:"«…το κύμα γέννησε\nτην Αφροδίτη·\nλένε τον τόπο\nΠέτρα του Ρωμιού.»",
+   verseEn:"\"…where Aphrodite rose\nout of the waves;\nthey call the place\n'Greek's Rock.'\"",
+   accent:"#dcd0b4", bg:"#1a1814"},
+  {label:"ΑΝΑΜΝΗΣΗ · MEMORY",
+   titleEl:"Σαλώμη και Ραμαζάν", titleEn:"Salome and Ramazan",
+   verseEl:"Είχε τα μάτια της Σαλώμης\nη γάτα που έχασα τον άλλο χρόνο\nκι ο Ραμαζάν πώς κοίταζε\nκατάματα το θάνατο…",
+   verseEn:"She had Salome's eyes,\nthe cat I lost a year ago;\nand old Ramazan,\nhow he would look death square in the eyes…",
+   accent:"#e0a040", bg:"#1c1408"},
+  {label:"ΣΤΟΧΑΣΜΟΣ · REFLECTION",
+   titleEl:"Μη σταθείς, ταξιδιώτη", titleEn:"Don't stop, traveler",
+   verseEl:"…ο μικρός εφέστιος θεός.\nΜη σταθείς ταξιδιώτη.\n«Τρία καρτίνια αριστερά»\nμουρμούρισε ο τιμονιέρης.",
+   verseEn:"…the young hearth god.\nDon't stop, traveler.\n\"Left ten degrees rudder,\"\nmuttered the helmsman.",
+   accent:"#cccdc8", bg:"#141416"},
+  {label:"ΠΑΡΕΚΒΑΣΗ · DIGRESSION",
+   titleEl:"Ο φίλος, ξέμπαρκος", titleEn:"The friend, between ships",
+   verseEl:"…ίσως ο φίλος μου\nκλειστός σ' ένα μικρό σπίτι\nμε εικόνες, γυρεύοντας\nπαράθυρα πίσω απ' τα κάδρα.",
+   verseEn:"…maybe my friend was close by,\nshut up in a small house\nwith pictures, searching for\nwindows behind the frames.",
+   accent:"#d8a858", bg:"#1c1610"},
+  {label:"ΜΕΤΑΒΑΣΗ · TRANSITION",
+   titleEl:"Η καμπάνα του καραβιού", titleEn:"The ship's bell",
+   verseEl:"Χτύπησε η καμπάνα\nσαν τη μονέδα πολιτείας\nπου χάθηκε κι ήρθε\nνα ζωντανέψει πέφτοντας…",
+   verseEn:"The ship's bell struck\nlike a coin from\nsome vanished city\nthat brings to mind, as it falls…",
+   accent:"#e0b048", bg:"#1c180a"},
+  {label:"ΑΦΗΓΗΣΗ · NARRATIVE",
+   titleEl:"Ο μισότρελος καλόγερος", titleEn:"The half-mad monk",
+   verseEl:"«Διηγότανε την ιστορία\nένας καλόγερος\nένας μισότρελος,\nένας ονειροπόλος.»",
+   verseEn:"\"A monk told me the story,\na half-mad monk,\na kind of dreamer.\"",
+   accent:"#ecaa3c", bg:"#1e1408"},
+  {label:"ΑΦΗΓΗΣΗ · NARRATIVE",
+   titleEl:"Σαράντα χρόνια αναβροχιά", titleEn:"Forty years without rain",
+   verseEl:"«Τον καιρό της μεγάλης στέγνιας,\n— σαράντα χρόνια αναβροχιά —\nπέθαινε ο κόσμος\nκαι γεννιούνταν φίδια.»",
+   verseEn:"\"It was during the great drought,\nforty years without rain,\npeople died\nand snakes were born.\"",
+   accent:"#90c060", bg:"#0e1a0a"},
+  {label:"ΑΦΗΓΗΣΗ · NARRATIVE",
+   titleEl:"Οι Αγιοβασιλείτες & οι γάτες", titleEn:"The monks of Saint Basil",
+   verseEl:"Το μοναστήρι τ' Αϊ-Νικόλα\nτο είχαν Αγιοβασιλείτες…\nτους έσωσαν οι γάτες\nπου αναθρέφαν.",
+   verseEn:"The monastery of St. Nicholas\nwas held by the monks of St. Basil…\nsaved by the cats they raised.",
+   accent:"#d8d6d0", bg:"#16161a"},
+  {label:"ΑΦΗΓΗΣΗ · NARRATIVE",
+   titleEl:"Τέσσερις καμπάνες", titleEn:"Four bells a day",
+   verseEl:"Την κάθε αυγή χτυπούσε\nμια καμπάνα και ξεκινούσαν\nτσούρμο για τη μάχη…\nτον πόλεμο της νύχτας.",
+   verseEn:"Every day at dawn\na bell would strike\nand an army of cats\nwould move into battle.",
+   accent:"#e8323c", bg:"#1e0a0c"},
+  {label:"ΑΦΗΓΗΣΗ · NARRATIVE",
+   titleEl:"Λαβωμένες, πεισματικές", titleEn:"Wildly obstinate, wounded",
+   verseEl:"Άλλη κουτσή, κι άλλη στραβή,\nχωρίς μύτη, χωρίς αφτί…\nΆγρια πεισματικές\nκαι πάντα λαβωμένες.",
+   verseEn:"Some lame, some twisted,\nothers missing a nose, an ear,\ntheir hides in shreds.\nWildly obstinate, wounded.",
+   accent:"#ec2a30", bg:"#1e0a0c"},
+  {label:"ΕΠΙΛΟΓΟΣ · EPILOGUE",
+   titleEl:"Νίκη και Αφανισμός", titleEn:"Victory and Vanishing",
+   verseEl:"Ξολόθρεψαν τα φίδια\nμα στο τέλος χαθήκανε…\nΩσάν καράβι καταποντισμένο\nτίποτε δεν αφήσαν.",
+   verseEn:"They annihilated the snakes;\nbut in the end they disappeared…\nLike a sunken ship\nthey left no trace.",
+   accent:"#c4c5be", bg:"#15151a"},
+  {label:"ΕΠΙΛΟΓΟΣ · EPILOGUE",
+   titleEl:"«Γραμμή!» — Αιώνες φαρμάκι", titleEn:"\"Steady as you go\"",
+   verseEl:"«Αιώνες φαρμάκι·\nγενιές φαρμάκι.»\n«Γραμμή!» αντιλάλησε\nαδιάφορος ο τιμονιέρης.",
+   verseEn:"\"Generations of poison,\ncenturies of poison.\"\n\"Steady as you go,\"\nindifferently echoed the helmsman.",
+   accent:"#90d090", bg:"#0c1a0e"},
+];
+
+const stage    = document.getElementById('stage');
+const dotsBox  = document.getElementById('dots');
+const progress = document.getElementById('progress');
+const prevBtn  = document.getElementById('prev');
+const nextBtn  = document.getElementById('next');
+const lightbox = document.getElementById('lightbox');
+const lbImg    = document.getElementById('lbImg');
+const lbClose  = document.getElementById('lbClose');
+
+let idx = 0;
+const total = CARDS.length;
+
+function render(){
+  stage.innerHTML = '';
+  CARDS.forEach((c, i) => {
+    const el = document.createElement('article');
+    el.className = 'card' + (i === idx ? ' active' : '');
+    el.style.setProperty('--card-bg',     c.bg);
+    el.style.setProperty('--card-accent', c.accent);
+    el.style.setProperty('--card-border', c.accent + '44');
+    el.innerHTML = `
+      <header class="card-header">
+        <div class="author"><strong>ΓΙΩΡΓΟΣ ΣΕΦΕΡΗΣ · GEORGE SEFERIS</strong></div>
+        <div class="work">Ημερολόγιο Καταστρώματος, Γ΄ · Logbook III · 1969</div>
+        <div class="pub">Translation: E. Keeley & P. Sherrard · Princeton UP, Bilingual Edition</div>
+      </header>
+      <div class="card-label">${c.label} &nbsp;·&nbsp; ${String(i+1).padStart(2,'0')} / ${String(total).padStart(2,'0')}</div>
+      <h2 class="card-title">${c.titleEl}</h2>
+      <div class="card-title-en">${c.titleEn}</div>
+      <div class="verses">
+        <div class="verse-col verse-el"><span class="lang">ΕΛ</span>${c.verseEl}</div>
+        <div class="verse-col verse-en"><span class="lang">EN</span>${c.verseEn}</div>
+      </div>
+      <img class="card-image" src="images/image_${String(i+1).padStart(2,'0')}.jpg" alt="${c.titleEl}" loading="lazy">
+      <div class="card-footer">
+        <span>Card ${String(i+1).padStart(2,'0')} / ${total}</span>
+        <span class="credit">Safe Paws Cyprus</span>
+      </div>
+    `;
+    el.querySelector('.card-image').addEventListener('click', () => openLightbox(i+1));
+    stage.appendChild(el);
+  });
+
+  dotsBox.innerHTML = '';
+  CARDS.forEach((_, i) => {
+    const b = document.createElement('button');
+    b.className = 'dot' + (i === idx ? ' active' : '');
+    b.setAttribute('aria-label', `Κάρτα ${i+1}`);
+    b.addEventListener('click', () => go(i));
+    dotsBox.appendChild(b);
+  });
+
+  progress.textContent = `${String(idx+1).padStart(2,'0')} / ${String(total).padStart(2,'0')}`;
+  prevBtn.disabled = idx === 0;
+  nextBtn.disabled = idx === total - 1;
+}
+function go(i){
+  if (i < 0 || i >= total) return;
+  idx = i;
+  render();
+  document.querySelector('.cards-section').scrollIntoView({behavior:'smooth', block:'start'});
+}
+prevBtn.addEventListener('click', () => go(idx - 1));
+nextBtn.addEventListener('click', () => go(idx + 1));
+
+document.addEventListener('keydown', e => {
+  if (lightbox.classList.contains('open')) {
+    if (e.key === 'Escape') closeLightbox();
+    return;
+  }
+  if (e.key === 'ArrowLeft')  go(idx - 1);
+  if (e.key === 'ArrowRight') go(idx + 1);
+});
+
+let touchX = null;
+stage.addEventListener('touchstart', e => { touchX = e.changedTouches[0].screenX; });
+stage.addEventListener('touchend',   e => {
+  if (touchX === null) return;
+  const dx = e.changedTouches[0].screenX - touchX;
+  if (Math.abs(dx) > 50) go(idx + (dx < 0 ? 1 : -1));
+  touchX = null;
+});
+
+function openLightbox(n){
+  lbImg.src = `images/image_${String(n).padStart(2,'0')}.jpg`;
+  lightbox.classList.add('open');
+}
+function closeLightbox(){ lightbox.classList.remove('open'); lbImg.src=''; }
+lightbox.addEventListener('click', closeLightbox);
+lbClose.addEventListener('click', closeLightbox);
+
+render();
+</script>
+</body>
+</html>
